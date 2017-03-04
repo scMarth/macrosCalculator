@@ -1,0 +1,131 @@
+*, html{
+    margin:0;
+    padding: 0;
+}
+
+html, body{
+   height: 100%;
+}
+
+body{
+   background-image: url('./images/sweets-ice-cream-chocolate-5590.jpg');
+   /* fresh-fruits-berries-frukty-2724 */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   overflow-x: hidden;
+}
+
+#OutputTable, #FoodTable, tbody, thead {
+   display: block;
+}
+
+#OutputTable, #FoodTable {
+   height: 30%;
+   margin-left: 10%;
+   margin-right: 10%;
+   width: 80%;
+   background-color: rgba(26, 196, 255, 0.6);
+   color: #ffffff;
+   border-collapse: collapse;
+   border: 1px solid white;
+}
+
+tbody, thead {
+    overflow-y: scroll;
+}
+
+/* Removes Scrollbar from header */
+thead {
+    margin-right: -300px;
+    padding-right: 300px;
+}
+
+tbody {
+    max-height: calc(100% - 18px);
+}
+
+/* Highlight current row */
+tbody tr:hover {
+   background-color: rgba(0, 172, 230, 0.6);
+}
+
+
+tr {
+    display: table;
+    /*border-collapse: collapse;*/
+    width: 100%;
+    box-sizing: border-box;
+}
+
+th:nth-child(1), td:nth-child(1) {
+   text-align: left;
+   width: 30%;
+}
+
+th:nth-child(2), td:nth-child(2),
+th:nth-child(3), td:nth-child(3),
+th:nth-child(4), td:nth-child(4),
+th:nth-child(5), td:nth-child(5),
+th:nth-child(6), td:nth-child(6)
+{
+   text-align: left;
+   width: 14%;
+}
+
+.FoodTableHeader + #FoodTable {
+   margin-top: 18px;
+}
+
+
+td, th {
+   /*
+   border-top: 1px solid white;
+   border-bottom: 1px solid white;
+   border: 1px solid white;
+   */
+
+}
+
+#InputLabel, #OutputLabel {
+  background-color: rgba(26, 196, 255, 0.6);
+  color: #ffffff;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  text-align: center;
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+#OutputTextDiv {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  display:block;
+  background-color: rgba(26, 196, 255, 0.6);
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+#file {
+  margin-left: 10%;
+}
+
+
+
+
+
+
+
+/*
+
+Implementation Notes:
+
+the header and table rows are different because the scroll wheel applies to
+the table rows but not the header
+
+*/
