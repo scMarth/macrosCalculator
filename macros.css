@@ -22,7 +22,7 @@ body{
 }
 
 #OutputTable, #FoodTable {
-   height: 30%;
+   height: 20%;
    margin-left: 10%;
    margin-right: 10%;
    width: 80%;
@@ -78,16 +78,6 @@ th:nth-child(6), td:nth-child(6)
    margin-top: 18px;
 }
 
-
-td, th {
-   /*
-   border-top: 1px solid white;
-   border-bottom: 1px solid white;
-   border: 1px solid white;
-   */
-
-}
-
 #InputLabel, #OutputLabel {
   background-color: rgba(26, 196, 255, 0.6);
   color: #ffffff;
@@ -106,7 +96,8 @@ td, th {
   display:block;
   background-color: rgba(26, 196, 255, 0.6);
   color: #ffffff;
-  text-align: center;
+  /*text-align: center;*/
+  text-align: left;
   border: 1px solid white;
   border-collapse: collapse;
 }
@@ -115,17 +106,39 @@ td, th {
   margin-left: 10%;
 }
 
+#OutputSubDiv1, #OutputSubDiv2, #OutputSubDiv3, #OutputSubDiv4, 
+#OutputSubDiv5, #OutputSubDiv6, #OutputSubDiv7, #OutputSubDiv8, 
+#OutputSubDiv9, #OutputSubDiv10, #OutputSubDiv11, #OutputSubDiv12, 
+#OutputSubDiv13,#OutputSubDiv14,#OutputSubDiv15, #OutputSubDiv16 {
+  display: inline-block;
+}
 
+#OutputSubDiv7 {
+  margin-left: 10px;
+  color: white;
+}
+#OutputSubDiv8 {
+  margin-left: 10px;
+  text-align: right;
+  color: white;
+}
+#OutputSubDiv9 {
+  margin-left: 10px;
+  text-align: right;
+  color: white;
+}
+#OutputSubDiv10 {
+  margin-left: 10px;
+  color: white;
+}
+#OutputSubDiv11 {
+  margin-left: 10px;
+  text-align: right;
+  color: white;
+}
 
-
-
-
-
-/*
-
-Implementation Notes:
-
-the header and table rows are different because the scroll wheel applies to
-the table rows but not the header
-
-*/
+#OutputSubDiv15 {
+  margin-left: 20px;
+  text-align: right;
+  color: white;
+}
