@@ -142,3 +142,15 @@ th:nth-child(6), td:nth-child(6)
   text-align: right;
   color: white;
 }
+
+/*
+#testdiv {
+  white-space: pre;
+  background-color: white;
+  color: black;
+}
+*/
+
+#saveAsTextFileButton{
+  margin-left: 10%;
+}

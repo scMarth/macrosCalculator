@@ -9,6 +9,8 @@ var height = 0; //height in inches
 var weight = 0;  //weight in pounds
 var age = 0;    //age in years
 
+// food name, calories, carbs, protein, fats, sugars
+
 var foodList = `
 BMR(height_inches,weight_pounds,age_years): 68 150 24
                               1 egg       80        0        7        5        0
@@ -23,28 +25,75 @@ BMR(height_inches,weight_pounds,age_years): 68 150 24
                   special k protein      160       19       10        1        7
 `;
 
+
+var insolFibers = superTotal - totalCalories;
+
+var fatl = 0;
+var fath = 0;
+var carbl = 0;
+var carbh = 0;
+var protl = 0;
+var proth = 0;
+
+var faterr = 0;
+var carberr = 0;
+var proterr = 0;
+var fatacc = 0;
+var carbacc = 0;
+var protacc = 0;
+var calacc = 0;
+
+var carbpercent = 0;
+var protpercent = 0;
+var fatpercent = 0;
+
+var carbString = "";
+var protString = "";
+var fatString = "";
+
+
+var outString0 = "";
+var outString1 = "";
+var outString2 = "";
+var outString3 = "";
+var outString4 = "";
+var outString5 = "";
+var outString6 = "";
+var outString7 = "";
+var outString8 = "";
+var outString9 = "";
+var outString10 = "";
+var outString11 = "";
+var outString12 = "";
+var outString13 = "";
+var outString14 = "";
+var outString15 = "";
+var outString16 = "";
+
+var BMR = 0;
+
 function updateOutputDiv(){
    superTotal = 9*parseFloat(totalFats) + 4*parseFloat(totalCarbs) + 4*parseFloat(totalProtein);
-   var insolFibers = superTotal - totalCalories;
+   insolFibers = superTotal - totalCalories;
 
-   var fatl = (.10 * totalCalories)/9;
-   var fath = (.20 * totalCalories)/9;
-   var carbl = (.40 * totalCalories)/4;
-   var carbh = (.60 * totalCalories)/4;
-   var protl = (.30 * totalCalories)/4;
-   var proth = (.40 * totalCalories)/4;
+   fatl = (.10 * totalCalories)/9;
+   fath = (.20 * totalCalories)/9;
+   carbl = (.40 * totalCalories)/4;
+   carbh = (.60 * totalCalories)/4;
+   protl = (.30 * totalCalories)/4;
+   proth = (.40 * totalCalories)/4;
 
-   var faterr = 0;
-   var carberr = 0;
-   var proterr = 0;
-   var fatacc = totalFats;
-   var carbacc = totalCarbs;
-   var protacc = totalProtein;
-   var calacc = totalCalories;
+   faterr = 0;
+   carberr = 0;
+   proterr = 0;
+   fatacc = totalFats;
+   carbacc = totalCarbs;
+   protacc = totalProtein;
+   calacc = totalCalories;
 
-   var carbpercent = (carbacc*400)/calacc;
-   var protpercent = (protacc*400)/calacc;
-   var fatpercent = (fatacc*900)/calacc;
+   carbpercent = (carbacc*400)/calacc;
+   protpercent = (protacc*400)/calacc;
+   fatpercent = (fatacc*900)/calacc;
 
    if ((fatacc >= fatl)&&(fatacc <= fath)){ faterr=0;}//fat
    else if (fatacc < fatl){ faterr = (fatl - fatacc)*100/fatl;}
@@ -56,9 +105,9 @@ function updateOutputDiv(){
    else if (protacc < protl){ proterr = (protl - protacc)*100/protl;}
    else if (protacc > proth){ proterr = (protacc - proth)*100/proth;}
 
-   var carbString = "";
-   var protString = "";
-   var fatString = "";
+   carbString = "";
+   protString = "";
+   fatString = "";
 
    if (carbpercent>60) carbString = "TOO HIGH!";
    else if (carbpercent<40) carbString = "TOO LOW!";
@@ -72,41 +121,30 @@ function updateOutputDiv(){
    else if (fatpercent<10) fatString = "TOO LOW!";
    else fatString = "(safe)";
 
-   var BMR = 66 + (6.23*weight) + (12.7*height) - (6.8*age);
+   BMR = 66 + (6.23*weight) + (12.7*height) - (6.8*age);
 
-   var outString0 = "";
-   var outString1 = "";
-   var outString2 = "";
-   var outString3 = "";
-   var outString4 = "";
-   var outString5 = "";
-   var outString6 = "";
-   var outString7 = "";
-   var outString8 = "";
-   var outString9 = "";
-   var outString10 = "";
-   var outString11 = "";
-   var outString12 = "";
-   var outString13 = "";
-   var outString14 = "";
-   var outString15 = "";
-   var outString16 = "";
+   outString0 = "";
+   outString1 = "";
+   outString2 = "";
+   outString3 = "";
+   outString4 = "";
+   outString5 = "";
+   outString6 = "";
+   outString7 = "";
+   outString8 = "";
+   outString9 = "";
+   outString10 = "";
+   outString11 = "";
+   outString12 = "";
+   outString13 = "";
+   outString14 = "";
+   outString15 = "";
+   outString16 = "";
 
-   if (0 == parseFloat(totalCarbs)){
-      totalCarbs = 0;
-   }
-
-   if (0 == parseFloat(totalProtein)){
-      totalProtein = 0;
-   }
-
-   if (0 == parseFloat(totalFats)){
-      totalFats = 0;
-   }
-
-   if (0 == parseFloat(totalSugars)){
-      totalSugars = 0;
-   }
+   if (0 == parseFloat(totalCarbs)) totalCarbs = 0;
+   if (0 == parseFloat(totalProtein)) totalProtein = 0;
+   if (0 == parseFloat(totalFats)) totalFats = 0;
+   if (0 == parseFloat(totalSugars)) totalSugars = 0;
 
    //if (1e-12 > insolFibers) insolFibers = 0;
 
@@ -127,7 +165,7 @@ function updateOutputDiv(){
       + protString + "</br>"
       + totalFats.toFixed(2) + " (" + fatpercent.toFixed(3) + "%) "
       + fatString + "</br>"
-      + "Sugars(g): " + totalSugars;
+      + totalSugars;
 
    outString4 += "Calories lost from insoluble fibers: " + insolFibers;
 
@@ -309,4 +347,110 @@ function insertCellInRow(inputRow, CellText){
    var newCell = inputRow.insertCell(inputRow.length);
    var newCellText = document.createTextNode(CellText);
    newCell.appendChild(newCellText);
+}
+
+
+function saveTextAsFile(){
+   outString0 = "";
+   var date = new Date();
+   outString0 =+ (parseInt(date.getMonth())+1) + "-"
+      + date.getDate() + "-" + date.getFullYear();
+
+   var OutputFileString = outString0 + `\n` + `\n`;
+
+   var table = document.getElementById('OutputTable');
+   var rows = table.getElementsByTagName("tr");
+   
+   // first print all the rows in the output table
+   for (var i=0; i < rows.length; i++){
+      var currentRow = table.rows[i];
+
+      if (i==0){
+         OutputFileString += printf(30, currentRow.getElementsByTagName("th")[0].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("th")[1].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("th")[2].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("th")[3].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("th")[4].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("th")[5].innerHTML);
+         OutputFileString += `\n`;
+      }else{
+         OutputFileString += printf(30, currentRow.getElementsByTagName("td")[0].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("td")[1].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("td")[2].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("td")[3].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("td")[4].innerHTML) + " ";
+         OutputFileString += printf(8, currentRow.getElementsByTagName("td")[5].innerHTML);
+      }
+      OutputFileString += `\n`;
+   }
+   OutputFileString +=`//////// Total ////////` + `\n`;
+   OutputFileString += `Calories :      ` + totalCalories +  `\n` 
+      + `Carbs(g) :      ` + totalCarbs.toFixed(2) + ` (`
+      + carbpercent.toFixed(3) + `%) ` + carbString + `\n`
+      + `Prot(g)  :      ` + totalProtein.toFixed(2) + ` (`
+      + protpercent.toFixed(3) + `%) ` + protString + `\n`
+      + `Fats(g)  :      ` + totalFats.toFixed(2) + ` (`
+      + fatpercent.toFixed(3) + `%) ` + fatString + `\n`
+      + `Sugars(g):      ` + totalSugars + `\n`
+      + `\n` + `Calories lost from insoluble fibers:`
+      + insolFibers + `\n` + `\n` + `[TARGET] `
+      + totalCalories + ` Calorie Diet` + `\n`
+      + `Macro    Range(%)      Min(g)     Max(g)     error(%)`
+      + `\n` + `\n`
+      + `Carbs    40% - 60% (` + printf(8,carbl.toFixed(3)) + ` - `
+      + printf(8,carbh.toFixed(3)) + `)   [` + printf(8, carberr.toFixed(3)) + `]` + `\n`
+      + `Protein  30% - 40% (` + printf(8,protl.toFixed(3)) + ` - `
+      + printf(8,proth.toFixed(3)) + `)   [` + printf(8,proterr.toFixed(3)) + `]` + `\n`
+      + `Fats     10% - 20% (` + printf(8,fatl.toFixed(3)) + ` - `
+      + printf(8,fath.toFixed(3)) + `)   [` + printf(8,faterr.toFixed(3)) + `]` + `\n`
+      + `\n` + `BMR (RAW): ` + BMR + ` Calories` + `\n`
+      + `Calories needed to maintain weight if:`
+      + `\n` + `\n`
+      + `                                      little to no exercise: `
+      + (1.2*BMR).toFixed(2) + ` Calories` + `\n`
+      + `               lightly active (light exercise 1-3days/week): `
+      + (1.375*BMR).toFixed(2) + ` Calories` + `\n`
+      + `         moderately active (moderate exervise 3-5days/week): `
+      + (1.55*BMR).toFixed(2) + ` Calories` + `\n`
+      + `                   very active (hard exercise 6-7days/week): `
+      + (1.725*BMR).toFixed(2) + ` Calories` + `\n`
+      + `    extra active (very hard exervise/sports & physical job): `
+      + (1.9*BMR).toFixed(2) + ` Calories` + `\n`;
+
+   //even with white-space: pre; still looks ugly in html
+   //document.getElementById("testdiv").innerHTML = OutputFileString;
+
+
+    var textToSave = OutputFileString;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = outString0 + ".txt"; //output filename
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+function destroyClickedElement(event){
+    document.body.removeChild(event.target);
+}
+
+function printf(spacing, inputString){
+   if (inputString.length >= spacing){
+      // if length of string is too long, return the original string
+      return inputString;
+   }else{
+      var numSpaces = spacing - inputString.length;
+      var padding = ``;
+      for (var i=1; i<=numSpaces; i++){
+         padding += ` `;
+      }
+      return padding + inputString;
+   }
 }

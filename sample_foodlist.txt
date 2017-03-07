@@ -1,3 +1,4 @@
+BMR(height_inches,weight_pounds,age_years): 68 150 24
                               1 egg       80        0        7        5        0
                        1/2c oatmeal      150       27        5        3        1
                   cnc protein shake  672.154       60   62.308   20.308       52
